@@ -10,13 +10,16 @@ shift = int(input("Type the shift number:\n"))
 
 def caesar(message, shift_amount, direction_answer):
     final_text = ""
-    for letter in message:
-        index = alphabet.index(letter)
-        if direction_answer == "encode":
-            shifted_index = (index + shift_amount) % 26
-        elif direction_answer == "decode":
-            shifted_index = (index - shift_amount) % 26
-        final_text += alphabet[shifted_index]
+    for char in message:
+        if char in alphabet:
+            index = alphabet.index(char)
+            if direction_answer == "encode":
+                shifted_index = (index + shift_amount) % 26
+            elif direction_answer == "decode":
+                shifted_index = (index - shift_amount) % 26
+            final_text += alphabet[shifted_index]
+        else:
+            final_text += char
     print(f"Your {direction}d message is {final_text}")
 
 
