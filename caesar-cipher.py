@@ -3,10 +3,6 @@ alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
             'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q',
             'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 print(logo)
-direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
-text = input("Type your message:\n").lower()
-shift = int(input("Type the shift number:\n"))
-
 
 def caesar(message, shift_amount, direction_answer):
     final_text = ""
@@ -23,5 +19,19 @@ def caesar(message, shift_amount, direction_answer):
     print(f"Your {direction}d message is {final_text}")
 
 
-caesar(message=text, shift_amount=shift, direction_answer=direction)
+should_continue = True
+while should_continue:
+
+    direction = input("\nType 'encode' to encrypt, type 'decode' to decrypt:\n")
+    text = input("\nType your message:\n").lower()
+    shift = int(input("\nType the shift number:\n"))
+
+    caesar(message=text, shift_amount=shift, direction_answer=direction)
+
+
+
+    restart = input("\nType 'yes' if you want to go again. Otherwise type 'no'.\n")
+    if restart == "no":
+        should_continue = False
+        print("\nGoodbye!")
 
